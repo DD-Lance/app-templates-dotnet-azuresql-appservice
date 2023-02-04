@@ -11,7 +11,7 @@ on:
   workflow_dispatch:
   
 env:
-  AZ_RG_NAME: 'DDWebRedirectTest_group'
+  AZ_RG_NAME: ${{ secrets.AZ_RG_NAME }}
   AZ_LOCATION: 'centralus'
   AZ_SERVICE_PLAN: ${{secrets.AZURE_APP_NAME}}-asp
   AZ_APP_NAME: ${{secrets.AZURE_APP_NAME}}-app
@@ -19,9 +19,9 @@ env:
   AZ_INSIGHT_NAME: ${{secrets.AZURE_APP_NAME}}-appi
   AZ_ANALYTICS_NAME: ${{secrets.AZURE_APP_NAME}}-la
   AZ_SQL_SERVER_NAME: ${{secrets.AZURE_APP_NAME}}-sql
-  AZ_SQL_SERVER_LOGIN: 'sqluser'
+  AZ_SQL_SERVER_LOGIN: ${{ secrets.AZURE_SQL_LOGIN }}
   AZ_SQL_SERVER_PASSWORD: ${{ secrets.AZURE_SQL_PASSWORD }}
-  AZ_SQL_DATABASE_NAME: ${{secrets.AZURE_APP_NAME}}-Db
+  AZ_SQL_DATABASE_NAME: ${{secrets.AZURE_SQL_DB}}-Db
 
 jobs:
   infra:
